@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Proveedores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/proveedores.css">
+    </head>
+    <body>
+        <header>
+            <h1>Proveedores</h1>
+        </header>
+        <p><em>el borde azul indica obligatorio</em></p>
+
+        <form id="formular" action="javascript:procesa()">
+           <label> Clave:
+               <input type="Text" name="clave"  size="16" placeholder="1 a 10 digitos" required > <!--etiqueta input es metodo de entrada-->
+     </label>
+     <br><output id="salidaClave"></output><br>
+     <label> Nombre:
+         <input type="Text" name="nombre"  size="16" placeholder="1 a 50 caracteres" required>
+     </label>
+     <br><output id="salidaNombre"></output><br>
+      <label> Telefono:
+          <input type="tel" name="telefono" size="16" placeholder="10 a 14 ditgitos" > <!--etiqueta input es metodo de entrada-->
+     </label>
+     <br><output id="salidaTelefono"></output><br>
+
+      <label accesskey="F">
+                    Fecha:
+                    <input name="fecha" type="date" autofocus required
+                           max="2021-01-24" min="2020-01-24">
+                </label>
+                <br><output id="salidaFecha"></output>
+                <br><br>
+
+            <input type="submit" value="Procesar" accesskey="P">
+
+            <input type="reset" value="Limpiar" accesskey="P">
+            <br> <br>
+
+        </form>
+
+        <footer>
+            <br>
+            Copyright Irving
+        </footer>
+        <script>
+        
+            
+"use strict";
+var forma = document.getElementById("formular"),
+    txtClave = forma["clave"],
+    txtNombre = forma["nombre"],
+    txtTelefono = forma["telefono"],
+    txtFecha = forma["fecha"],
+    salidaNombre = document.getElementById("salidaNombre"),
+    salidaClave = document.getElementById("salidaClave"),
+    salidaTelefono = document.getElementById("salidaTelefono"),
+    salidaFecha = document.getElementById("salidaFecha");
+
+forma.addEventListener("submit", procesa, false);
+
+function procesa(){
+    var fechaValueAsDate = txtFecha.valueAsDate,
+            fecha = new Date(txtFecha.value);
+     salidaFecha.textContent = "La fecha es:" + txtFecha.value;
+      salidaClave.textContent = "Su calve es: " + txtClave.value;
+      salidaNombre.textContent = "Su nombre es: " + txtNombre.value;
+      salidaTelefono.textContent = "Su telefono es: " + txtTelefono.value;
+
+}
+        </script>
+    </body>
+</html>
